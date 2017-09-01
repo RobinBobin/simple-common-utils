@@ -1,7 +1,5 @@
 This is a collection of classes used for JS client-side development.
 
-https://github.com/mathiasbynens/utf8.js/issues/17
-
  1. <a name="cusage"></a>[Usage](#usage)
  2. <a name="cversionHistory"></a>[Version history](#versionHistory)
 

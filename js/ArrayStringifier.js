@@ -63,4 +63,8 @@ export default class ArrayStringifier {
       
       return str;
    }
+   
+   toString() {
+      return this.process();
+   }
 }

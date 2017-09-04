@@ -13,6 +13,8 @@ This is a collection of classes used for JS client-side development.
 
 Given an array, produces its string representation.
 
+    import { ArrayStringifier } from "client-side-common-utils"; 
+
  - constructor()
 
     Constructs a class instance.
@@ -90,6 +92,8 @@ The following methods return `this` for method chaining.
 
 Provides a way to get and set objects properties with dot separated strings. All methods are `static`.
 
+    import { DottedStringObject } from "client-side-common-utils";
+
  - getProperty()
 
     Gets a property value.
@@ -135,12 +139,90 @@ Provides a way to get and set objects properties with dot separated strings. All
 
 #### <a name="staticUtils"></a>[StaticUtils](#cstaticUtils)
 
+A collection of different utility methods. All the methods in this class are `static`.
+
+    import { StaticUtils } from "client-side-common-utils";
+
+ - round()
+
+    Rounds `value` to `decimals` digits after the decimal point. Thanks [MarkG](https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary)!
+
+        StaticUtils.round(value, decimals);
+
+        StaticUtils.round(10.2); // 10.2
+        StaticUtils.round(10.2, 0); // 10
+        StaticUtils.round(10.5, 0); // 11
+        StaticUtils.round(10.523, 1); // 10.5
+        StaticUtils.round(10.525, 2); // 10.53
+
+ - encodedUtf8ToByteArray()
+
+    Converts the passed utf8-encoded string to a byte array.
+    
+        import utf8 from "utf8";
+        
+        StaticUtils.encodedUtf8ToByteArray(
+            utf8.encode("abcфыва")); // [ 97, 98, 99, 209, 132, 209, 139, 208, 178, 208, 176 ]
+
+ - ensureBounds()
+
+    Ensures `min <= value <= max`.
+
+        StaticUtils.ensureBounds(value, min, max);
+        
+        StaticUtils.ensureBounds(10, 2, 18); // 10
+        StaticUtils.ensureBounds(100, 2, 18); // 18
+        StaticUtils.ensureBounds(100, 200, 1800); // 200
+
+ - pushAndReturnElement()
+
+    Pushes `element` to `array` and returns `element`.
+
+        StaticUtils.pushAndReturnElement(array, element);
+
+ - quoteIfString()
+
+   Quotes `value` if it's a string.
+
+        StaticUtils.quoteIfString(10); // 10
+        StaticUtils.quoteIfString("10"); // "10"
+
+ - safeQuoteIfString()
+
+    Invokes `quoteIfString()` passing `value` to it if `quoteIfString` is `true`.
+
+        StaticUtils.safeQuoteIfString(value, quoteIfString);
+
+ - objectToArray()
+
+    Converts `object` to an array and returns it. Nested objects are **not** parsed.
+
+        StaticUtils.objectToArray({a: "10", b: 20}); // [ '10', 20 ]
+        StaticUtils.objectToArray({a: "10", b: 20, c: {a: 10}}); //  [ '10', 20, { a: 10 } ]
+
+Code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript) for the next two methods.
+
+ - escapeRegExp()
+
+   Given a string, escapes all occurences of symbols that have special meaning in regular expressions.
+
+        StaticUtils.escapeRegExp("a"); // a
+        StaticUtils.escapeRegExp("*a^"); // \*a\^
+
+ - replaceAll()
+
+    Implements a "replace all" functionality for a string.
+
+        StaticUtils.replaceAll("abc", "b", "10"); // a10c
+        StaticUtils.replaceAll("a^b*c", "^b", "10"); // a10*c
+
 #### <a name="utf8"></a>[utf8](#cutf8)
 
 ### <a name="versionHistory"></a>[Version history](#cversionHistory)
 
 Version number|Changes
 -|-
+v1.0.2|1.&nbsp;Readme updated.<br>2.&nbsp;`StaticUtils.round()`: if `decimals` isn't passed, `value` is returned.<br>3.&nbsp;`StaticUtils.ensureBounds()`: if `min` exceeds `max` an exception is thrown.
 v1.0.1|1.&nbsp;Readme updated.<br>2.&nbsp;`ArrayStringifier.toString()` is added. It's identical to `ArrayStringifier.process()`.
 v1.0.0|Initial release.
 <br><br>

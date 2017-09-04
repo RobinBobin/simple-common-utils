@@ -1,6 +1,10 @@
 export default class StaticUtils {
    static round(value, decimals) {
-      return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+      // https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+      // MarkG's answer.
+      
+      return decimals == undefined ? value : Number(Math.
+         round(value + "e" + decimals) + "e-" + decimals);
    }
    
    static encodedUtf8ToByteArray(encoded) {
@@ -14,6 +18,10 @@ export default class StaticUtils {
    }
    
    static ensureBounds(value, min, max) {
+      if (max < min) {
+         throw new Error("'min' must not exceed 'max'");
+      }
+      
       return Math.max(Math.min(value, max), min);
    }
    
@@ -40,11 +48,13 @@ export default class StaticUtils {
    }
    
    static escapeRegExp(string) {
+      // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript
       return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
    }
    
    static replaceAll(string, find, replace) {
-      return string.replace(new RegExp(StaticUtils.
-         escapeRegExp(find), 'g'), replace);
+      // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript
+      
+      return string.replace(new RegExp(StaticUtils.escapeRegExp(find), 'g'), replace);
    }
 }

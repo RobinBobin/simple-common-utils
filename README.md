@@ -1,7 +1,4 @@
-# Warning
-**This package is deprecated. Please use [simple-common-utils](https://www.npmjs.com/package/simple-common-utils) instead.**
-
-This is a collection of classes used for JS client-side development.
+This is a collection of utility classes used for JS development.
 
  1. <a name="cusage"></a>[Usage](#usage)
  2. <a name="cversionHistory"></a>[Version history](#versionHistory)
@@ -10,13 +7,12 @@ This is a collection of classes used for JS client-side development.
  1. <a name="carrayStringifier"></a>[ArrayStringifier](#arrayStringifier)
  2. <a name="cdottedStringObject"></a>[DottedStringObject](#dottedStringObject)
  3. <a name="cstaticUtils"></a>[StaticUtils](#staticUtils)
- 4. <a name="cutf8"></a>[utf8](#utf8)
 
 #### <a name="arrayStringifier"></a>[ArrayStringifier](#carrayStringifier)
 
 Given an array, produces its string representation.
 
-    import { ArrayStringifier } from "client-side-common-utils"; 
+    import { ArrayStringifier } from "simple-common-utils"; 
 
  - constructor()
 
@@ -95,7 +91,7 @@ The following methods return `this` for method chaining.
 
 Provides a way to get and set objects properties with dot separated strings. All methods are `static`.
 
-    import { DottedStringObject } from "client-side-common-utils";
+    import { DottedStringObject } from "simple-common-utils";
 
  - getProperty()
 
@@ -144,7 +140,7 @@ Provides a way to get and set objects properties with dot separated strings. All
 
 A collection of different utility methods. All the methods in this class are `static`.
 
-    import { StaticUtils } from "client-side-common-utils";
+    import { StaticUtils } from "simple-common-utils";
 
  - round()
 
@@ -219,14 +215,11 @@ Code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-rep
         StaticUtils.replaceAll("abc", "b", "10"); // a10c
         StaticUtils.replaceAll("a^b*c", "^b", "10"); // a10*c
 
-#### <a name="utf8"></a>[utf8](#cutf8)
 
 ### <a name="versionHistory"></a>[Version history](#cversionHistory)
 
 Version number|Changes
 -|-
-v1.0.2|1.&nbsp;Readme updated.<br>2.&nbsp;`StaticUtils.round()`: if `decimals` isn't passed, `value` is returned.<br>3.&nbsp;`StaticUtils.ensureBounds()`: if `min` exceeds `max` an exception is thrown.
-v1.0.1|1.&nbsp;Readme updated.<br>2.&nbsp;`ArrayStringifier.toString()` is added. It's identical to `ArrayStringifier.process()`.
 v1.0.0|Initial release.
 <br><br>
 > Written with [StackEdit](https://stackedit.io/).

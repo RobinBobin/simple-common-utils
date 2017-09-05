@@ -1,22 +1,22 @@
 {
-  "name": "client-side-common-utils",
-  "version": "1.0.3",
-  "description": "A collection of classes used for client-side development.",
+  "name": "simple-common-utils",
+  "version": "1.0.0",
+  "description": "A collection of utility classes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RobinBobin/js-client-side-common-utils.git"
+    "url": "git+https://github.com/RobinBobin/simple-common-utils.git"
   },
   "keywords": [
-    "client side utils"
+    "js utils"
   ],
   "author": "Ruben Shalimov <r_shalimov@inbox.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RobinBobin/js-client-side-common-utils/issues"
+    "url": "https://github.com/RobinBobin/simple-common-utils/issues"
   },
-  "homepage": "https://github.com/RobinBobin/js-client-side-common-utils#readme"
+  "homepage": "https://github.com/RobinBobin/simple-common-utils#readme"
 }

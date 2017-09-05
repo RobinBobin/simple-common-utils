@@ -1,3 +1,6 @@
+# Warning
+**This package is deprecated. Please use [simple-common-utils](https://www.npmjs.com/package/simple-common-utils) instead.**
+
 This is a collection of classes used for JS client-side development.
 
  1. <a name="cusage"></a>[Usage](#usage)

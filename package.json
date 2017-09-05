@@ -1,6 +1,6 @@
 {
   "name": "client-side-common-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of classes used for client-side development.",
   "main": "index.js",
   "scripts": {

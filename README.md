@@ -199,7 +199,7 @@ A collection of different utility methods. All the methods in this class are `st
         StaticUtils.objectToArray({a: "10", b: 20}); // [ '10', 20 ]
         StaticUtils.objectToArray({a: "10", b: 20, c: {a: 10}}); //  [ '10', 20, { a: 10 } ]
 
-Code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript) for the next two methods.
+The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript) for the next two methods.
 
  - escapeRegExp()
 
@@ -215,11 +215,23 @@ Code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-rep
         StaticUtils.replaceAll("abc", "b", "10"); // a10c
         StaticUtils.replaceAll("a^b*c", "^b", "10"); // a10*c
 
+ - deg2Rad()
+
+    Converts degrees to radians.
+
+ - color()
+
+        StaticUtils.color("pink"); // 0xffc0cb00
+        
+        StaticUtils.color("non-existent-color"); // undefined
+        
+        StaticUtils.color(123); // 123
 
 ### <a name="versionHistory"></a>[Version history](#cversionHistory)
 
 Version number|Changes
 -|-
+v1.1.0|The methods `StaticUtils.deg2Rad()` and `StaticUtils.color()` are added.
 v1.0.0|Initial release.
 <br><br>
 > Written with [StackEdit](https://stackedit.io/).

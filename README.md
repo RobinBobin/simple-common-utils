@@ -144,15 +144,17 @@ A collection of different utility methods. All the methods in this class are `st
 
  - round()
 
-    Rounds `value` to `decimals` digits after the decimal point. Thanks [MarkG](https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary)!
+    Rounds `value` to `decimals` digits after the decimal point (thanks, [MarkG](https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary)!). `symmetric` is used to achieve the same functionality both for negative and positive numbers.
 
-        StaticUtils.round(value, decimals);
+        StaticUtils.round(value, decimals, symmetric);
 
         StaticUtils.round(10.2); // 10.2
         StaticUtils.round(10.2, 0); // 10
         StaticUtils.round(10.5, 0); // 11
         StaticUtils.round(10.523, 1); // 10.5
         StaticUtils.round(10.525, 2); // 10.53
+        StaticUtils.round(-1.5, 0); // -1
+        StaticUtils.round(-1.5, 0, true); // -2
 
  - encodedUtf8ToByteArray()
 
@@ -231,6 +233,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v1.2.0|The parameter `symmetric` is added to `StaticUtils.round()` in a backwards-compatible way.
 v1.1.0|The methods `StaticUtils.deg2Rad()` and `StaticUtils.color()` are added.
 v1.0.0|Initial release.
 <br><br>

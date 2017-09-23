@@ -147,12 +147,20 @@ export default class StaticUtils {
       yellowgreen: 0x9acd3200
    };
    
-   static round(value, decimals) {
+   static round(value, decimals, symmetric) {
       // https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
       // MarkG's answer.
       
-      return decimals == undefined ? value : Number(Math.
-         round(value + "e" + decimals) + "e-" + decimals);
+      let result = value;
+      
+      if (decimals != undefined) {
+         const multiplier = !symmetric ? undefined : result < 0 ? -1 : 1;
+         
+         result = Number(Math.round((multiplier ? Math.abs(result) : result) +
+            "e" + decimals) + "e-" + decimals) * (multiplier || 1);
+      }
+      
+      return result;
    }
    
    static encodedUtf8ToByteArray(encoded) {

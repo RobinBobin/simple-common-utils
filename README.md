@@ -233,6 +233,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v1.2.1|`StaticUtils.colorNames` had `00` as alpha. Changed to `FF`.
 v1.2.0|The parameter `symmetric` is added to `StaticUtils.round()` in a backwards-compatible way.
 v1.1.0|The methods `StaticUtils.deg2Rad()` and `StaticUtils.color()` are added.
 v1.0.0|Initial release.

@@ -221,4 +221,14 @@ export default class StaticUtils {
    static color(color) {
       return typeof color == "string" ? StaticUtils.colorNames[color] : color;
    }
+   
+   static random(min, max, round, maxInclusive) {
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+      
+      const mn = round ? Math.ceil(min) : min;
+      const mx = round ? Math.floor(max) : max;
+      const rnd = Math.random() * (mx - mn + (round && maxInclusive ? 1 : 0));
+      
+      return (round ? Math.floor(rnd) : rnd) + mn;
+   }
 }

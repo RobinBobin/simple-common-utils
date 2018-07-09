@@ -1,4 +1,4 @@
-This is a collection of utility classes used for JS development.
+﻿This is a collection of utility classes used for JS development.
 
  1. <a name="cusage"></a>[Usage](#usage)
  2. <a name="cversionHistory"></a>[Version history](#versionHistory)
@@ -229,10 +229,25 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
         
         StaticUtils.color(123); // 123
 
+ - random()
+
+    Generates a random number using `Math.random()`.
+
+        StaticUtils.random(1.5, 2.5); // A random number between 1.5 and 2.5.
+        
+        StaticUtils.random(10, 12, true); // An integer random number in the half-open range [10, 12).
+        
+        StaticUtils.random(10, 12, true, true); // An integer random number in the closed-range [10, 12].
+
+ - verify(condition, errorMessage)
+
+    Evaluates the passed boolean `condition` and throws an error with the `errorMessage` text if `condition` is false.
+
 ### <a name="versionHistory"></a>[Version history](#cversionHistory)
 
 Version number|Changes
 -|-
+v1.4.1|The method `StaticUtils.verify()` is added.
 v1.2.1|`StaticUtils.colorNames` had `00` as alpha. Changed to `FF`.
 v1.2.0|The parameter `symmetric` is added to `StaticUtils.round()` in a backwards-compatible way.
 v1.1.0|The methods `StaticUtils.deg2Rad()` and `StaticUtils.color()` are added.

@@ -231,4 +231,10 @@ export default class StaticUtils {
       
       return (round ? Math.floor(rnd) : rnd) + mn;
    }
+   
+   static verify(condition, errorMessage) {
+      if (!condition) {
+         throw new Error(errorMessage);
+      }
+   }
 }

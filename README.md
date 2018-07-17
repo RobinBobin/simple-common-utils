@@ -183,16 +183,17 @@ A collection of different utility methods. All the methods in this class are `st
 
  - quoteIfString()
 
-   Quotes `value` if it's a string.
+   Quotes `value` if it's a string, using `quotingSymbol`.
 
         StaticUtils.quoteIfString(10); // 10
         StaticUtils.quoteIfString("10"); // "10"
+        StaticUtils.quoteIfString("10", "'"); // '10'
 
  - safeQuoteIfString()
 
-    Invokes `quoteIfString()` passing `value` to it if `quoteIfString` is `true`.
+    Invokes `quoteIfString()` passing `value` and `quotingSymbol` to it if `quoteIfString` is `true`.
 
-        StaticUtils.safeQuoteIfString(value, quoteIfString);
+        StaticUtils.safeQuoteIfString(value, quoteIfString, quotingSymbol);
 
  - objectToArray()
 
@@ -247,6 +248,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v1.5.1|`quotingSymbol` is added to `StaticUtils.quoteIfString() / safeQuoteIfString()`.
 v1.4.1|The method `StaticUtils.verify()` is added.
 v1.2.1|`StaticUtils.colorNames` had `00` as alpha. Changed to `FF`.
 v1.2.0|The parameter `symmetric` is added to `StaticUtils.round()` in a backwards-compatible way.

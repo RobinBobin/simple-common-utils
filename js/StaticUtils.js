@@ -187,12 +187,12 @@ export default class StaticUtils {
       return element;
    }
    
-   static quoteIfString(value) {
-      return value.constructor == String ? `"${value}"` : value;
+   static quoteIfString(value, quotingSymbol = '"') {
+      return value.constructor == String ? `${quotingSymbol}${value}${quotingSymbol}` : value;
    }
    
-   static safeQuoteIfString(value, quoteIfString) {
-      return quoteIfString ? StaticUtils.quoteIfString(value) : value;
+   static safeQuoteIfString(value, quoteIfString, quotingSymbol) {
+      return quoteIfString ? StaticUtils.quoteIfString(value, quotingSymbol) : value;
    }
    
    static objectToArray(object) {

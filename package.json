@@ -1,6 +1,6 @@
 {
   "name": "simple-common-utils",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "A collection of utility classes.",
   "main": "index.js",
   "scripts": {

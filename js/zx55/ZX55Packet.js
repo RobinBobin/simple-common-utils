@@ -36,9 +36,9 @@ export default class ZX55Packet {
          
          this._cmd = this._buf[2];
       } else {
-         const params = arguments.slice(1);
+         const params = Array.from(arguments);
          
-         this._cmd = arguments[0];
+         this._cmd = params.shift();
          this._buf = [1 + 1 + 1 + params.length + 2, this._cmd].concat(params);
          
          const crc = calcCrc(this._buf);
@@ -62,6 +62,6 @@ export default class ZX55Packet {
    }
    
    _assertSizeValidity(typeName, size) {
-      StaticUtils.verify(this.getBuffer().length == size, `${typeName} instances must have the size of ${size}.`);
+      StaticUtils.verify(this.getBuffer().length == size, `${typeName} instances must have the size of ${size}, not of ${this.getBuffer().length}.`);
    }
 }

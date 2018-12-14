@@ -248,6 +248,8 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v1.7.0|`data-transmission-protocol`-classes added. These deprecate `zx55`.
+v1.6.0|`zx55` added.
 v1.5.1|`quotingSymbol` is added to `StaticUtils.quoteIfString() / safeQuoteIfString()`.
 v1.4.1|The method `StaticUtils.verify()` is added.
 v1.2.1|`StaticUtils.colorNames` had `00` as alpha. Changed to `FF`.

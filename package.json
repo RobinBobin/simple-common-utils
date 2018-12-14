@@ -1,10 +1,13 @@
 {
   "name": "simple-common-utils",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "A collection of utility classes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+     "core-decorators": "latest"
   },
   "repository": {
     "type": "git",

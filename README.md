@@ -248,6 +248,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v1.7.1|Autobinding removed from the `data-transmission-protocol`-classes.
 v1.7.0|`data-transmission-protocol`-classes added. These deprecate `zx55`.
 v1.6.0|`zx55` added.
 v1.5.1|`quotingSymbol` is added to `StaticUtils.quoteIfString() / safeQuoteIfString()`.

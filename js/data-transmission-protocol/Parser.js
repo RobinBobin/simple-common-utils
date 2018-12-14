@@ -1,7 +1,5 @@
-import { autobind } from "core-decorators";
 import Packet from "./Packet";
 
-@autobind
 export default class Parser {
    static Handler = class {
       constructor(type, handler) {
@@ -15,6 +13,8 @@ export default class Parser {
       this._handlers = new Map();
       this._format = format;
       this._defaultPacketType = defaultPacketType;
+      
+      this.parse = this.parse.bind(this);
    }
    
    addHandler(handler) {
@@ -43,7 +43,7 @@ export default class Parser {
             break;
          }
          
-         const packetSize = this._format.getPacketSize(buf, offset);
+         const packetSize = this._format.getPacketSize(this._buf, offset);
          
          const handler = this._handlers.get(this._format.getCommandNumber(this._buf, offset));
          

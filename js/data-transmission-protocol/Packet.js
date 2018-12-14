@@ -1,7 +1,5 @@
-import { autobind } from "core-decorators";
 import StaticUtils from "../StaticUtils";
 
-@autobind
 export default class Packet {
    /**
     * Creates a packet of the specified format. Valid invocation variants:

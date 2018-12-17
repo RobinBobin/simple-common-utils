@@ -1,32 +1,25 @@
 import StaticUtils from "../StaticUtils";
 
 export default class Packet {
-   /**
-    * Creates a packet of the specified format. Valid invocation variants:
-    *    1) new Packet(format[, <command number>[, byte1, ..., byteN]]);
-    *    2) new Packet(format, buffer, start, end);
-    * 
-    **/
-   constructor() {
-      this._format = arguments[0];
+   constructor(format, commandNumber, params = []) {
+      this._format = format;
       
       if (arguments.length > 1) {
-         if (Array.isArray(arguments[1])) {
-            this._buf = arguments[1].slice(arguments[2], arguments[3]);
-      
-            StaticUtils.verify(this._format.isValid(this._buf), `[ ${this._buf.join(", ")} ] is not a valid packet.`);
-         } else {
-            const params = Array.from(arguments);
-            params.shift();
-            
-            this._buf = [];
-            
-            this._format.setStartMarker(this._buf);
-            this._format.setCommandNumber(this._buf, params.shift());
-            
-            this.setParams(params);
-         }
+         this._buf = [];
+         
+         this._format.setStartMarker(this._buf);
+         this._format.setCommandNumber(this._buf, commandNumber);
+         
+         this.setParams(params);
       }
+   }
+   
+   wrap(buffer, start = 0, end = buffer.length) {
+      this._buf = buffer.slice(start, end);
+
+      StaticUtils.verify(this._format.isValid(this._buf), `[ ${this._buf.join(", ")} ] is not a valid packet.`);
+      
+      return this;
    }
    
    setParams(params) {

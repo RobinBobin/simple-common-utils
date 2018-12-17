@@ -48,7 +48,7 @@ export default class Parser {
          const handler = this._handlers.get(this._format.getCommandNumber(this._buf, offset));
          
          try {
-            const packet = new (handler ? handler._type : this._defaultPacketType)(this._format, this._buf, offset, offset + packetSize);
+            const packet = new (handler ? handler._type : this._defaultPacketType)(this._format).wrap(this._buf, offset, offset + packetSize);
             
             handler && handler._handler ? handler._handler(packet) : packets.push(packet);
             

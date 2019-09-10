@@ -237,4 +237,22 @@ export default class StaticUtils {
          throw new Error(errorMessage);
       }
    }
+   
+   static verifyPropertyPresence(object, property, type) {
+      StaticUtils.verify(object.hasOwnProperty(property), `Property '${property}' is undefined.`);
+      
+      if (type) {
+         StaticUtils.verify(object[property].constructor == type || object[property] instanceof type, `Property '${property}' must be a ${type.name}, not a ${object[property].constructor.name}.`);
+      }
+   }
+   
+   static verifyPropertyAbsence(object, property) {
+      if (Array.isArray(property)) {
+         for (const name of property) {
+            StaticUtils.verifyPropertyAbsence(object, name);
+         }
+      } else {
+         StaticUtils.verify(!object.hasOwnProperty(property), `Property '${property}' is already defined.`);
+      }
+   }
 }

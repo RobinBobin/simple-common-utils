@@ -156,8 +156,7 @@ export default class StaticUtils {
       if (decimals != undefined) {
          const multiplier = !symmetric ? undefined : result < 0 ? -1 : 1;
          
-         result = Number(Math.round((multiplier ? Math.abs(result) : result) +
-            "e" + decimals) + "e-" + decimals) * (multiplier || 1);
+         result = Number(Math.round((multiplier ? Math.abs(result) : result) + "e" + decimals) + "e-" + decimals) * (multiplier || 1);
       }
       
       return result;
@@ -174,9 +173,7 @@ export default class StaticUtils {
    }
    
    static ensureBounds(value, min, max) {
-      if (max < min) {
-         throw new Error("'min' must not exceed 'max'");
-      }
+      StaticUtils.verify(min <= max, "'min' must not exceed 'max'");
       
       return Math.max(Math.min(value, max), min);
    }
@@ -239,10 +236,12 @@ export default class StaticUtils {
    }
    
    static verifyPropertyPresence(object, property, type) {
-      StaticUtils.verify(object.hasOwnProperty(property), `Property '${property}' is undefined.`);
+      StaticUtils.verify(object.hasOwnProperty(property), `Property '${property}' is undefined`);
       
       if (type) {
-         StaticUtils.verify(object[property].constructor == type || object[property] instanceof type, `Property '${property}' must be a ${type.name}, not a ${object[property].constructor.name}.`);
+         const isNull = object[property] == null;
+         
+         StaticUtils.verify(!isNull && (object[property].constructor == type || object[property] instanceof type), `Property '${property}' must be a ${type.name}, not ${isNull ? "null" : "a " + object[property].constructor.name}`);
       }
    }
    
@@ -252,7 +251,7 @@ export default class StaticUtils {
             StaticUtils.verifyPropertyAbsence(object, name);
          }
       } else {
-         StaticUtils.verify(!object.hasOwnProperty(property), `Property '${property}' is already defined.`);
+         StaticUtils.verify(!object.hasOwnProperty(property), `Property '${property}' is already defined`);
       }
    }
 }

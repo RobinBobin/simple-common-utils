@@ -248,6 +248,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v2.2.0|`./js/processing-queue/` classes are added.
 v2.1.1|1. `StaticUtils.verifyPropertyPresence()` behaved incorrectly if a field being verified was `null` or `undefined`. Fixed.<br>2. Final stops removed from `throw` messages.
 v2.1.0|`StaticUtils.verifyPropertyPresence()` / `StaticUtils.verifyPropertyAbsence()` are added.
 v2.0.0|Backwards-incompatible changes in `data-transmission-protocol` classes:<br>1. `Packet.constructor()` changed and `Packet.wrap()` added.<br>2. `Format` is filled dynamically: it's necessary to import relevant format-defining classes.

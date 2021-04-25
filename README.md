@@ -142,19 +142,17 @@ A collection of different utility methods. All the methods in this class are `st
 
     import { StaticUtils } from "simple-common-utils";
 
- - round()
+ - color()
 
-    Rounds `value` to `decimals` digits after the decimal point (thanks, [MarkG](https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary)!). `symmetric` is used to achieve the same functionality both for negative and positive numbers.
+        StaticUtils.color("pink"); // 0xffc0cb00
+        
+        StaticUtils.color("non-existent-color"); // undefined
+        
+        StaticUtils.color(123); // 123
 
-        StaticUtils.round(value, decimals, symmetric);
+ - deg2Rad()
 
-        StaticUtils.round(10.2); // 10.2
-        StaticUtils.round(10.2, 0); // 10
-        StaticUtils.round(10.5, 0); // 11
-        StaticUtils.round(10.523, 1); // 10.5
-        StaticUtils.round(10.525, 2); // 10.53
-        StaticUtils.round(-1.5, 0); // -1
-        StaticUtils.round(-1.5, 0, true); // -2
+    Converts degrees to radians.
 
  - encodedUtf8ToByteArray()
 
@@ -175,6 +173,20 @@ A collection of different utility methods. All the methods in this class are `st
         StaticUtils.ensureBounds(100, 2, 18); // 18
         StaticUtils.ensureBounds(100, 200, 1800); // 200
 
+ - escapeRegExp()
+
+   Given a string, escapes all occurences of symbols that have special meaning in regular expressions. The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript).
+
+        StaticUtils.escapeRegExp("a"); // a
+        StaticUtils.escapeRegExp("*a^"); // \*a\^
+
+ - objectToArray()
+
+    Converts `object` to an array and returns it. Nested objects are **not** parsed.
+
+        StaticUtils.objectToArray({a: "10", b: 20}); // [ '10', 20 ]
+        StaticUtils.objectToArray({a: "10", b: 20, c: {a: 10}}); //  [ '10', 20, { a: 10 } ]
+
  - pushAndReturnElement()
 
     Pushes `element` to `array` and returns `element`.
@@ -189,47 +201,6 @@ A collection of different utility methods. All the methods in this class are `st
         StaticUtils.quoteIfString("10"); // "10"
         StaticUtils.quoteIfString("10", "'"); // '10'
 
- - safeQuoteIfString()
-
-    Invokes `quoteIfString()` passing `value` and `quotingSymbol` to it if `quoteIfString` is `true`.
-
-        StaticUtils.safeQuoteIfString(value, quoteIfString, quotingSymbol);
-
- - objectToArray()
-
-    Converts `object` to an array and returns it. Nested objects are **not** parsed.
-
-        StaticUtils.objectToArray({a: "10", b: 20}); // [ '10', 20 ]
-        StaticUtils.objectToArray({a: "10", b: 20, c: {a: 10}}); //  [ '10', 20, { a: 10 } ]
-
-The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript) for the next two methods.
-
- - escapeRegExp()
-
-   Given a string, escapes all occurences of symbols that have special meaning in regular expressions.
-
-        StaticUtils.escapeRegExp("a"); // a
-        StaticUtils.escapeRegExp("*a^"); // \*a\^
-
- - replaceAll()
-
-    Implements a "replace all" functionality for a string.
-
-        StaticUtils.replaceAll("abc", "b", "10"); // a10c
-        StaticUtils.replaceAll("a^b*c", "^b", "10"); // a10*c
-
- - deg2Rad()
-
-    Converts degrees to radians.
-
- - color()
-
-        StaticUtils.color("pink"); // 0xffc0cb00
-        
-        StaticUtils.color("non-existent-color"); // undefined
-        
-        StaticUtils.color(123); // 123
-
  - random()
 
     Generates a random number using `Math.random()`.
@@ -240,6 +211,37 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
         
         StaticUtils.random(10, 12, true, true); // An integer random number in the closed-range [10, 12].
 
+ - replaceAll()
+
+    Implements a "replace all" functionality for a string. The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript).
+
+        StaticUtils.replaceAll("abc", "b", "10"); // a10c
+        StaticUtils.replaceAll("a^b*c", "^b", "10"); // a10*c
+
+ - round()
+
+    Rounds `value` to `decimals` digits after the decimal point (thanks, [MarkG](https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary)!). `symmetric` is used to achieve the same functionality both for negative and positive numbers.
+
+        StaticUtils.round(value, decimals, symmetric);
+
+        StaticUtils.round(10.2); // 10.2
+        StaticUtils.round(10.2, 0); // 10
+        StaticUtils.round(10.5, 0); // 11
+        StaticUtils.round(10.523, 1); // 10.5
+        StaticUtils.round(10.525, 2); // 10.53
+        StaticUtils.round(-1.5, 0); // -1
+        StaticUtils.round(-1.5, 0, true); // -2
+
+ - safeQuoteIfString()
+
+    Invokes `quoteIfString()` passing `value` and `quotingSymbol` to it if `quoteIfString` is `true`.
+
+        StaticUtils.safeQuoteIfString(value, quoteIfString, quotingSymbol);
+
+ - today()
+
+	returns a `Date` object, representing today.
+
  - verify(condition, errorMessage)
 
     Evaluates the passed boolean `condition` and throws an error with the `errorMessage` text if `condition` is false.
@@ -248,6 +250,7 @@ The code is taken from [here](https://stackoverflow.com/questions/1144783/how-to
 
 Version number|Changes
 -|-
+v2.3.0|`StaticUtils.today()` added.
 v2.2.0|`./js/processing-queue/` classes are added.
 v2.1.1|1. `StaticUtils.verifyPropertyPresence()` behaved incorrectly if a field being verified was `null` or `undefined`. Fixed.<br>2. Final stops removed from `throw` messages.
 v2.1.0|`StaticUtils.verifyPropertyPresence()` / `StaticUtils.verifyPropertyAbsence()` are added.

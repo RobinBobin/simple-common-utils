@@ -229,10 +229,11 @@ export default class StaticUtils {
     return quoteIfString ? StaticUtils.quoteIfString(value, quotingSymbol) : value;
   }
   
-  static today() {
+  static today(returnNow = false) {
     const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return returnNow ? [now, today] : today;
   }
   
   static verify(condition, errorMessage) {

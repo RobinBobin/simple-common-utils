@@ -238,9 +238,9 @@ A collection of different utility methods. All the methods in this class are `st
 
         StaticUtils.safeQuoteIfString(value, quoteIfString, quotingSymbol);
 
- - today()
+ - today(returnNow = false)
 
-	returns a `Date` object, representing today.
+	Returns a `Date` object, representing today, if `returnNow` is `false`. Returns `[now, today]` otherwise.
 
  - verify(condition, errorMessage)
 
@@ -250,6 +250,7 @@ A collection of different utility methods. All the methods in this class are `st
 
 Version number|Changes
 -|-
+v2.4.0|1. `StaticUtils.today()`: `returnNow` added.<br>2. `package.json`: fields alphabetized.
 v2.3.0|`StaticUtils.today()` added.
 v2.2.0|`./js/processing-queue/` classes are added.
 v2.1.1|1. `StaticUtils.verifyPropertyPresence()` behaved incorrectly if a field being verified was `null` or `undefined`. Fixed.<br>2. Final stops removed from `throw` messages.

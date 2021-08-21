@@ -180,6 +180,10 @@ A collection of different utility methods. All the methods in this class are `st
         StaticUtils.escapeRegExp("a"); // a
         StaticUtils.escapeRegExp("*a^"); // \*a\^
 
+- formatError(error)
+
+  Enumerates the fields of the given argument with `Object.entries()` and returns a string based on the result.
+
  - objectToArray()
 
     Converts `object` to an array and returns it. Nested objects are **not** parsed.
@@ -250,6 +254,7 @@ A collection of different utility methods. All the methods in this class are `st
 
 Version number|Changes
 -|-
+v2.5.0|`StaticUtils.formatError()` added.
 v2.4.0|1. `StaticUtils.today()`: `returnNow` added.<br>2. `package.json`: fields alphabetized.
 v2.3.0|`StaticUtils.today()` added.
 v2.2.0|`./js/processing-queue/` classes are added.

@@ -176,6 +176,26 @@ export default class StaticUtils {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
   
+  static formatError(error) {
+    let result = "Start of error output:\n";
+    
+    Object.entries(error).forEach(entry => {
+      const value = entry[1];
+      
+      const stringifier = [
+        Array,
+        Object,
+        undefined
+      ].includes(value?.constructor) ? JSON.stringify : obj => obj.toString();
+      
+      result += `${entry[0]}: ${stringifier(value)}\n`;
+    });
+    
+    result += "End of error output";
+    
+    return result;
+  }
+  
   static objectToArray(object) {
     return Object.keys(object).reduce((p, c) => {
         p.push(object[c]);

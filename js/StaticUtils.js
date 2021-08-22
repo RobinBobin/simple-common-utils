@@ -177,21 +177,29 @@ export default class StaticUtils {
   }
   
   static formatError(error) {
-    let result = "Start of error output:\n";
+    let result;
     
-    Object.entries(error).forEach(entry => {
-      const value = entry[1];
-      
-      const stringifier = [
-        Array,
-        Object,
-        undefined
-      ].includes(value?.constructor) ? JSON.stringify : obj => obj.toString();
-      
-      result += `${entry[0]}: ${stringifier(value)}\n`;
-    });
+    const errorEntries = Object.entries(error);
     
-    result += "End of error output";
+    if (!errorEntries.length) {
+      result = error;
+    } else {
+      result = "Start of error output:\n";
+      
+      errorEntries.forEach(entry => {
+        const value = entry[1];
+        
+        const stringifier = [
+          Array,
+          Object,
+          undefined
+        ].includes(value?.constructor) ? JSON.stringify : obj => obj.toString();
+        
+        result += `${entry[0]}: ${stringifier(value)}\n`;
+      });
+      
+      result += "End of error output";
+    }
     
     return result;
   }

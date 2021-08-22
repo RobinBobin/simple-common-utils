@@ -182,7 +182,7 @@ A collection of different utility methods. All the methods in this class are `st
 
 - formatError(error)
 
-  Enumerates the fields of the given argument with `Object.entries()` and returns a string based on the result.
+  Enumerates the fields of the given argument with `Object.entries()` and returns a string based on the result. Returns the given argument if it has no enumerable entries.
 
  - objectToArray()
 
@@ -254,6 +254,7 @@ A collection of different utility methods. All the methods in this class are `st
 
 Version number|Changes
 -|-
+v2.5.1|`StaticUtils.formatError()`: fallback added.
 v2.5.0|`StaticUtils.formatError()` added.
 v2.4.0|1. `StaticUtils.today()`: `returnNow` added.<br>2. `package.json`: fields alphabetized.
 v2.3.0|`StaticUtils.today()` added.

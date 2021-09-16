@@ -204,6 +204,18 @@ export default class StaticUtils {
     return result;
   }
   
+  static getRandomColor() {
+    const hexDigits = "0123456789ABCDEF";
+    
+    const result = [];
+    
+    for (let i = 0; i < 6; i++) {
+      result.push(hexDigits[StaticUtils.random(0, hexDigits.length, true)]);
+    }
+    
+    return `#${result.join("")}`;
+  }
+  
   static objectToArray(object) {
     return Object.keys(object).reduce((p, c) => {
         p.push(object[c]);

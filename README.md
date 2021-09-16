@@ -184,6 +184,10 @@ A collection of different utility methods. All the methods in this class are `st
 
   Enumerates the fields of the given argument with `Object.entries()` and returns a string based on the result. Returns the given argument if it has no enumerable entries.
 
+- getRandomColor()
+
+  Returns a random color in the form "#RRGGBB".
+
  - objectToArray()
 
     Converts `object` to an array and returns it. Nested objects are **not** parsed.
@@ -254,6 +258,7 @@ A collection of different utility methods. All the methods in this class are `st
 
 Version number|Changes
 -|-
+v2.6.0|`StaticUtils.getRandomColor()` added.
 v2.5.1|`StaticUtils.formatError()`: fallback added.
 v2.5.0|`StaticUtils.formatError()` added.
 v2.4.0|1. `StaticUtils.today()`: `returnNow` added.<br>2. `package.json`: fields alphabetized.

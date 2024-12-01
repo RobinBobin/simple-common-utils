@@ -2,10 +2,10 @@ import type { IOptions } from './types'
 
 import { isString } from 'radashi'
 
-export const quoteIfString = (
-  value: unknown,
+export const quoteIfString = <T>(
+  value: T,
   options?: Readonly<IOptions>
-): unknown => {
+): T | string => {
   const quotingSymbol = options?.quotingSymbol ?? '"'
   const shouldSkip = options?.shouldSkip ?? false
 

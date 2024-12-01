@@ -1,6 +1,6 @@
 import { isString } from 'radashi'
 
-export class ArrayStringifier<T = unknown> {
+export class ArrayStringifier<T> {
   protected postfix = ''
   protected prefix = ''
 

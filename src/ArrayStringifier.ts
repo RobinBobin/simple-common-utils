@@ -1,15 +1,15 @@
 import { isString } from 'radashi'
 
-export class ArrayStringifier {
+export class ArrayStringifier<T = unknown> {
   protected postfix = ''
   protected prefix = ''
 
   constructor(
-    protected array: readonly unknown[] = [],
+    protected array: readonly T[] = [],
     protected separator = ', '
   ) {}
 
-  setArray(array: readonly unknown[]): this {
+  setArray(array: readonly T[]): this {
     this.array = array
 
     return this

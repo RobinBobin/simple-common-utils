@@ -42,8 +42,9 @@ export class ArrayStringifier<T> {
 
     result.push(
       ...this.array.map(
-        (__, index) =>
-          this.getStringifiedElement(index) + this.getSeparator(index)
+        (element, index) =>
+          this.getStringifiedElement(index, element) +
+          this.getSeparator(index, element)
       )
     )
 
@@ -70,12 +71,16 @@ export class ArrayStringifier<T> {
     return this.prefix
   }
 
-  protected getSeparator(index: number): string {
+  // @ts-expect-error `element` not used
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected getSeparator(index: number, element: T): string {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     return index === this.array.length - 1 ? '' : this.separator
   }
 
-  protected getStringifiedElement(index: number): string {
+  // @ts-expect-error `el` not used
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected getStringifiedElement(index: number, el: T): string {
     const element = this.array[index] as { toString?: () => string }
     const stringifiedElement = element.toString?.()
 

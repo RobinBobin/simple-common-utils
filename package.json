@@ -4,6 +4,7 @@
     "url": "https://github.com/RobinBobin/simple-common-utils/issues"
   },
   "dependencies": {
+    "change-case": "^5.4.4",
     "radashi": "^12.3.4"
   },
   "description": "A collection of utility classes.",

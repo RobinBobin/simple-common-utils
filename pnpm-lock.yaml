@@ -13,7 +13,7 @@ importers:
         version: 5.4.4
       radashi:
         specifier: ^12.3.4
-        version: 12.3.4
+        version: 12.5.1
     devDependencies:
       '@robinbobin/ts-eslint-prettier':
         specifier: ^2.3.2
@@ -579,8 +579,8 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  radashi@12.3.4:
-    resolution: {integrity: sha512-EC+EhNBJItMLo/D3GR87raHf7W1hkbHUT7Y3Y7/3O+cwMOulRfuZ3g+EU0KT9eikaj8vwLA4ia+bdaXkBGuT4Q==}
+  radashi@12.5.1:
+    resolution: {integrity: sha512-gcznSPJe2SCIuWf6QTqSHZRyMQU6hnUk4NpR7LmmNmdK1BGOXdnHuNIO4VzNw+feu0Wsnv/AYmxqwUYDBatPMA==}
     engines: {node: '>=16.0.0'}
 
   resolve-from@4.0.0:
@@ -1286,7 +1286,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  radashi@12.3.4: {}
+  radashi@12.5.1: {}
 
   resolve-from@4.0.0: {}
 

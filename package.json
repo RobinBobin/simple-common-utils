@@ -5,14 +5,15 @@
   },
   "dependencies": {
     "change-case": "^5.4.4",
-    "radashi": "^12.6.0"
+    "radashi": "^12.7.0"
   },
-  "description": "A collection of utility classes.",
+  "description": "A collection of utilities.",
   "devDependencies": {
     "@robinbobin/ts-eslint-prettier": "^3.1.0",
-    "eslint": "^9.32.0",
+    "eslint": "^9.38.0",
+    "mobx-state-tree": "^7.0.2",
     "prettier": "^3.6.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "files": [
     "js",
@@ -26,7 +27,7 @@
   "license": "MIT",
   "main": "js/src/index.js",
   "name": "simple-common-utils",
-  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
+  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@robinbobin/ts-eslint-prettier",
@@ -37,5 +38,8 @@
   "scripts": {
     "prepack": "./prepack.sh"
   },
-  "version": "3.4.1"
+  "version": "3.4.1",
+  "peerDependencies": {
+    "mobx-state-tree": "^7.0.2"
+  }
 }

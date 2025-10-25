@@ -11,6 +11,8 @@
   "devDependencies": {
     "@robinbobin/ts-eslint-prettier": "^3.1.0",
     "eslint": "^9.38.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "mobx-state-tree": "^7.0.2",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3"
@@ -25,6 +27,12 @@
     "ts utils"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "*.{json,md,mjs,ts,tsx}": [
+      "eslint --fix",
+      "prettier . --write"
+    ]
+  },
   "main": "js/src/index.js",
   "name": "simple-common-utils",
   "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
@@ -36,7 +44,8 @@
   },
   "repository": "github:RobinBobin/simple-common-utils.git",
   "scripts": {
-    "prepack": "./prepack.sh"
+    "prepack": "./prepack.sh",
+    "prepare": "husky"
   },
   "version": "3.4.1",
   "peerDependencies": {

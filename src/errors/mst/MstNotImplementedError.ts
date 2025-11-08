@@ -4,6 +4,6 @@ class MstNotImplementedError extends MstFormattedError {
   // Nothing to do.
 }
 
-MstNotImplementedError.prototype.name = 'MstFormattedError'
+MstNotImplementedError.prototype.name = 'MstNotImplementedError'
 
 export { MstNotImplementedError }

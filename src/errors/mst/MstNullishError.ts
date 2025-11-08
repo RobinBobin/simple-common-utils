@@ -4,6 +4,6 @@ class MstNullishError extends MstFormattedError {
   // Nothing to do.
 }
 
-MstNullishError.prototype.name = 'MstFormattedError'
+MstNullishError.prototype.name = 'MstNullishError'
 
 export { MstNullishError }

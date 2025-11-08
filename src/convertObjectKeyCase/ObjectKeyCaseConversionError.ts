@@ -13,6 +13,6 @@ class ObjectKeyCaseConversionError extends Error {
   }
 }
 
-ObjectKeyCaseConversionError.prototype.name = 'SnakeToCamelConversionError'
+ObjectKeyCaseConversionError.prototype.name = 'ObjectKeyCaseConversionError'
 
 export { ObjectKeyCaseConversionError }

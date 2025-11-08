@@ -47,7 +47,7 @@
     "prepack": "./prepack.sh",
     "prepare": "husky"
   },
-  "version": "3.5.0",
+  "version": "3.5.1",
   "peerDependencies": {
     "mobx-state-tree": "^7.0.2"
   }
